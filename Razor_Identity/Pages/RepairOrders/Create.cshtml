@@ -1,0 +1,59 @@
+﻿@page
+@model Razor_Identity.Pages.RepairOrders.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>RepairOrder</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="RepairOrder.PartListId" class="control-label"></label>
+                <select asp-for="RepairOrder.PartListId" class ="form-control" asp-items="ViewBag.PartListId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="RepairOrder.Status" class="control-label"></label>
+                <input asp-for="RepairOrder.Status" class="form-control" />
+                <span asp-validation-for="RepairOrder.Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RepairOrder.HoursWorked" class="control-label"></label>
+                <input asp-for="RepairOrder.HoursWorked" class="form-control" />
+                <span asp-validation-for="RepairOrder.HoursWorked" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RepairOrder.BeginDate" class="control-label"></label>
+                <input asp-for="RepairOrder.BeginDate" class="form-control" />
+                <span asp-validation-for="RepairOrder.BeginDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RepairOrder.EndDate" class="control-label"></label>
+                <input asp-for="RepairOrder.EndDate" class="form-control" />
+                <span asp-validation-for="RepairOrder.EndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RepairOrder.Description" class="control-label"></label>
+                <textarea asp-for="RepairOrder.Description" class="form-control"></textarea>
+                <span asp-validation-for="RepairOrder.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
